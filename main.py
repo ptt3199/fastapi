@@ -1,4 +1,3 @@
-
 from fastapi import FastAPI, Body
 import uvicorn 
 from pydantic import BaseModel
@@ -22,6 +21,10 @@ class InferenceInput(BaseModel):
 def round_time(timex):
     return str(timex).split()[-1].split(".")[0]
 
+@app.get("/")
+def read_root():
+    return {"message": "It's working!"}
+
 @app.post('/inference_y8')
 def inference_y8(params: InferenceInput):
     print("***** ***** ***** ***** ***** ***** *****")
@@ -44,3 +47,10 @@ def inference_y8(params: InferenceInput):
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True, workers=1)
 
+# from fastapi import FastAPI
+
+# app = FastAPI()
+
+# @app.get("/")
+# def read_root():
+#     return {"message": "It's working!"}
