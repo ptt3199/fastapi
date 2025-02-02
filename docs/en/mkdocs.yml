@@ -304,7 +304,7 @@ markdown_extensions:
 
   # Other extensions
   mdx_include:
-  markdown_include_variants:
+  # markdown_include_variants:
 
 extra:
   analytics:
